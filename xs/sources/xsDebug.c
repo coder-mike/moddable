@@ -369,7 +369,7 @@ txBoolean fxDebugEvalExpression(txMachine* the, txSlot* frame, txSlot* expressio
 	if (mxIsFunction(expression->value.reference)) {
 	// #if mxDebugEval
 		
-		txSlot* scope = scope;
+		txSlot* scope = 0;
 		if (frame == the->frame)
 			scope = the->scope;
 		else {

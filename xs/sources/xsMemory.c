@@ -266,6 +266,7 @@ void* fxCheckChunk(txMachine* the, txChunk* chunk, txSize size, txSize offset)
 
 void fxCheckCStack(txMachine* the)
 {
+	return;
     char x;
     char *stack = &x;
 	if (stack <= the->stackLimit) {

@@ -39,6 +39,7 @@
 
 void fxCheckParserStack(txParser* parser, txInteger line)
 {
+	return;
     char x;
     char *stack = &x;
     if (stack <= parser->stackLimit) {

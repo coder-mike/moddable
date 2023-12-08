@@ -1424,7 +1424,7 @@ mxImport void fxArrayCacheItem(xsMachine*, xsSlot*, xsSlot*);
 mxImport void fxBuildHosts(xsMachine*, xsIntegerValue, xsHostBuilder*);
 mxImport void fxNewHostConstructor(xsMachine*, xsCallback, xsIntegerValue, xsIntegerValue);
 mxImport void fxNewHostFunction(xsMachine*, xsCallback, xsIntegerValue, xsIntegerValue, xsIntegerValue);
-mxImport void fxNewHostInstance(xsMachine*);
+mxImport xsSlot* fxNewHostInstance(xsMachine*);
 mxImport xsSlot* fxNewHostObject(xsMachine*, xsDestructor);
 mxImport xsIntegerValue fxGetHostBufferLength(xsMachine*, xsSlot*);
 mxImport void* fxGetHostChunk(xsMachine*, xsSlot*);
