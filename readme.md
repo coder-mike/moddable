@@ -249,3 +249,11 @@ For companies interested in the benefits of using JavaScript and the Moddable SD
 You can also reach out to us on Twitter ([@moddabletech](https://twitter.com/moddabletech)). Following us on Twitter is the best way to keep up with what we’re doing—we post announcements about new blog posts there, along with other Moddable news.
 
 You can contact us directly by e-mail at [info@moddable.com](mailto:info@moddable.com).
+
+## Modifications in this fork
+
+[This repository](https://github.com/coder-mike/moddable) is a fork of [the original Moddable SDK](https://github.com/Moddable-OpenSource/moddable), with the main intent to use it in a WASM build using Emscripten. The licenses remain the same as the original. The following 4 changes were made to the original:
+
+- In `xs.h`, the function `fxNewHostInstance` now returns `xsSlot*` to match its implementation.
+- In `fxDebugEvalExpression`, the line `txSlot* scope = scope;` was changed to `txSlot* scope = 0;` to avoid referring to an uninitialized variable.
+- The functions `fxCheckCStack` and `fxCheckParserStack` in `xsMemory.c` and `xsScript.c` now terminate early without doing any checks. This is because the stack checking didn't seem to work off the bat in the WASM and Emscripten adds some of its own stack overflow checking. It's not recommended to use this fork in an environment that doesn't have its own stack overflow checking since this change breaks the previous behavior.
